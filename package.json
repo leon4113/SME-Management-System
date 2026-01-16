@@ -1,0 +1,28 @@
+{
+  "name": "sme-management-system",
+  "version": "1.0.0",
+  "description": "An internal management system designed for Small and Medium Enterprises (SMEs) to manage users, inventory, and orders with secure role-based access control and audit logging.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leon4113/SME-Management-System.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/leon4113/SME-Management-System/issues"
+  },
+  "homepage": "https://github.com/leon4113/SME-Management-System#readme",
+  "dependencies": {
+    "@prisma/client": "^7.2.0",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "prisma": "^7.2.0"
+  }
+}

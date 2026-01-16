@@ -8,7 +8,7 @@ This project demonstrates backend system design, authentication, authorization, 
 - Backend: Node.js, Express
 - Database: Supabase (PostgreSQL)
 - Frontend: Vue.js
-- Authentication: JWT / Supabase Auth
+- Authentication: Supabase Auth
 - Infrastructure: Docker
 
 ## Core Features
