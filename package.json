@@ -19,10 +19,15 @@
   },
   "homepage": "https://github.com/leon4113/SME-Management-System#readme",
   "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.2.0",
-    "express": "^5.2.1"
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.21.0"
   },
   "devDependencies": {
+    "nodemon": "^3.1.11",
     "prisma": "^7.2.0"
   }
 }
