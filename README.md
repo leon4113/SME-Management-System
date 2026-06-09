@@ -2,7 +2,6 @@
 
 An internal management system designed for Small and Medium Enterprises (SMEs) to manage users, inventory, and orders with secure role-based access control and audit logging.
 
-This project demonstrates backend system design, authentication, authorization, and production-ready API development.
 
 ## Tech Stack
 - Backend: Node.js, Express

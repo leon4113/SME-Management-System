@@ -1,5 +1,7 @@
 const bcrypt = require('bcrypt');
 const prisma = require('../../lib/prisma');
+const { createAuditLog } = require('../audit/audit.service');
+
 
 const createUser = async (req, res) => {
   try {
@@ -14,6 +16,8 @@ const createUser = async (req, res) => {
     });
 
     const { passwordHash, ...userWithoutPassword } = user;
+
+    await createAuditLog({ userId: req.user.userId, action: 'CREATE_USER', entity: 'User', entityId: user.id });
 
     res.status(201).json(userWithoutPassword);
   } catch (error) {

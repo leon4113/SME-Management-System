@@ -1,4 +1,6 @@
 const prisma = require('../../lib/prisma');
+const { createAuditLog } = require('../audit/audit.service');
+
 
 const createProduct = async (req, res) => {
   try {
@@ -11,6 +13,8 @@ const createProduct = async (req, res) => {
         quantity,
       },
     });
+    
+    await createAuditLog({ userId: req.user.userId, action: 'CREATE_PRODUCT', entity: 'Product', entityId: product.id });
     res.status(201).json(product);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -29,6 +33,7 @@ const updateProduct = async (req, res) => {
         quantity,
       },
     });
+    await createAuditLog({ userId: req.user.userId, action: 'UPDATE_PRODUCT', entity: 'Product', entityId: product.id });
     res.status(200).json(product);
   } catch (error) {
     res.status(500).json({ error: error.message });

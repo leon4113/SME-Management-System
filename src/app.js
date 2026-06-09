@@ -3,6 +3,7 @@ const app = express();
 const authRoutes = require('./modules/auth/auth.routes');
 const userRoutes = require('./modules/users/users.routes');
 const productRoutes = require('./modules/products/products.routes');
+const orderRoutes = require('./modules/orders/orders.routes');
 
 
 
@@ -12,6 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/orders', orderRoutes);
+
 
 // Routes
 app.get('/', (req, res) => {
