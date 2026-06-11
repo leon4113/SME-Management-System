@@ -9,7 +9,7 @@ const { validate } = require('../../middleware/validate')
 const router = require('express').Router();
 
 router.get('/', protect, authorize('ADMIN', 'STAFF'), getProducts);
-router.post('/', protect, authorize('ADMIN'), productValidator, validate, createProduct);
-router.put('/:id', protect, authorize('ADMIN'), productValidator, validate, updateProduct);
+router.post('/', protect, authorize('ADMIN'), ...productValidator, validate, createProduct);
+router.put('/:id', protect, authorize('ADMIN'), ...productValidator, validate, updateProduct);
 
 module.exports = router;

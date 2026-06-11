@@ -62,6 +62,33 @@ const createOrder = async (req, res) => {
   }
 }
 
+const updateOrder = async (req, res) => {
+  try {
+    const { status } = req.body
+    const { id } = req.params
+
+    const order = await prisma.order.findUnique({
+      where: { id },
+    })
+
+    if (!order) {
+      return res.status(404).json({ message: 'Order not found' })
+    }
+
+    if (order.status !== 'PENDING') {
+      return res.status(400).json({ message: 'Only pending orders can be updated' })
+    }
+
+    const updatedOrder = await prisma.order.update({
+      where: { id },
+      data: { status }
+    })
+    res.status(200).json(updatedOrder)
+  } catch (error) {
+    res.status(500).json({ error: error.message })
+  }  
+}
+
 const getOrders = async (req, res) => {
   try {
     const orders = await prisma.order.findMany({
@@ -76,5 +103,6 @@ const getOrders = async (req, res) => {
 
 module.exports = {
   createOrder,
-  getOrders
+  getOrders,
+  updateOrder,
 }

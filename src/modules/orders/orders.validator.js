@@ -6,4 +6,8 @@ const orderValidator = [
   body('items.*.quantity').isInt({ min: 1 }).withMessage('Quantity must be at least 1'),
 ];
 
-module.exports = { orderValidator };
+const updateOrderValidator = [
+  body('status').isIn(['COMPLETED', 'CANCELLED']).withMessage('Status must be COMPLETED or CANCELLED')
+];
+
+module.exports = { orderValidator, updateOrderValidator };

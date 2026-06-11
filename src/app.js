@@ -4,6 +4,7 @@ const authRoutes = require('./modules/auth/auth.routes');
 const userRoutes = require('./modules/users/users.routes');
 const productRoutes = require('./modules/products/products.routes');
 const orderRoutes = require('./modules/orders/orders.routes');
+const auditRoutes = require('./modules/audit/audit.routes');
 
 
 
@@ -14,6 +15,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
+app.use('/api/audit', auditRoutes);
+
 
 
 // Routes
